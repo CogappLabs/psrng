@@ -10,6 +10,7 @@ function App() {
   const [ ransomNote, setRansomNote ] = useState('');
   const [ userInputWordsArray, setUserInputWordsArray ] = useState([])
   const [ ransomResults, setRansomResults ] = useState([])
+  const [ manifest, setManifest ] = useState('initial');
 
   const searchEndpoint = iiifEndpoints[1]['searchEndpoint']
   const catalogueIds = iiifEndpoints[1]['catalogueIds'][0]
@@ -35,7 +36,7 @@ function App() {
       }
     }
     getData();
-  },[userInputWordsArray])
+  },[userInputWordsArray, manifest])
 
   const handleChange = (event) => {
     const userInput = event.target.value;
