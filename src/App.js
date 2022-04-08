@@ -3,6 +3,7 @@ import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { iiifEndpoints } from './managed/iiifEndpoints'
+import Mirador from './Mirador';
 
 function App() {
 
@@ -44,22 +45,29 @@ function App() {
 
   return (
     <div className="App">
-     <div>
-       <input
+    <div>
+      <input
         placeholder='Type your note...'
         value={ransomNote}
         onChange={handleChange}
         />
-     </div>
-     <div>
-       {ransomResults.map(ransomResult => {
-         return <div>
-           <h3>{ransomResult.ransomWord}</h3>
-           <RansomWord ransomData={ransomResult}/>
-         </div>
-       })}
-     </div>
-
+    </div>
+    <div>
+      {ransomResults.map(ransomResult => {
+        return <div>
+          <h3>{ransomResult.ransomWord}</h3>
+          <RansomWord ransomData={ransomResult}/>
+        </div>
+      })}
+    </div>
+    {/* <div style={{'position': 'relative'}}>
+        <Mirador config={{
+          id: "mirador", windows: [{
+            loadedManifest: 'https://collections.maison-salins.fr/iiif/2/108217/manifest',
+            defaultSearchQuery: 'nous'
+          }],
+        }} plugins={[]} />
+      </div> */}
     </div>
   );
 }
