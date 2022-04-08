@@ -19,10 +19,14 @@ function App() {
     const getData = async() => {
       try {
         const { data } = await axios.get(`${searchEndpoint}${catalogueIds}?q=${wordToSearch}`);
+        
         if (wordToSearch) {
+          console.log(data['resources'].length > 0)
+          const resourceData = data['resources'].length > 0 ? data['resources'][Math.floor(Math.random() * data['resources'].length)] : null;
+          console.log(resourceData);
           const randomResource = {
             'ransomWord': wordToSearch,
-            'resource' : data['resources'][Math.floor(Math.random() * data['resources'].length)]
+            'resource' : resourceData
           }
           const wordSearchResult = [ ...ransomResults, randomResource ]
           setRansomResults(wordSearchResult)
@@ -43,6 +47,11 @@ function App() {
     }
   };
 
+  const couldNotFindWord = ransomResults.filter(ransomResult => !ransomResult.resource)
+  const couldFindWord = ransomResults.filter(ransomResult => ransomResult.resource)
+
+  console.log(couldFindWord)
+
   return (
     <div className="App">
     <div>
@@ -52,14 +61,23 @@ function App() {
         onChange={handleChange}
         />
     </div>
-    <div>
-      {ransomResults.map(ransomResult => {
-        return <div>
-          <h3>{ransomResult.ransomWord}</h3>
-          <RansomWord ransomData={ransomResult}/>
-        </div>
-      })}
-    </div>
+    { 
+      <div>
+        {couldFindWord.map(ransomResult => {
+          return <div>
+            <h3>{ransomResult.ransomWord}</h3>
+            <RansomWord ransomData={ransomResult}/>
+          </div>
+        })}
+        {couldNotFindWord.map(ransomResult => {
+          return <div>
+            <h3>{ransomResult.ransomWord}</h3>
+          </div>
+        })}
+      </div>
+
+    }
+    
     {/* <div style={{'position': 'relative'}}>
         <Mirador config={{
           id: "mirador", windows: [{
