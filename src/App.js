@@ -11,20 +11,21 @@ function App() {
   const [ userInputWordsArray, setUserInputWordsArray ] = useState([])
   const [ ransomResults, setRansomResults ] = useState([])
 
-  const searchEndpoint = iiifEndpoints[0]['searchEndpoint']
-  const catalogueIds = iiifEndpoints[0]['catalogueIds'][0]
+  const searchEndpoint = iiifEndpoints[1]['searchEndpoint']
+  const catalogueIds = iiifEndpoints[1]['catalogueIds'][0]
 
   useEffect(() => {
     const wordToSearch = userInputWordsArray[[userInputWordsArray.length -1]]
     const getData = async() => {
       try {
-        const { data } = await axios.get(`${searchEndpoint}${catalogueIds}?q=${wordToSearch}`);
+        const { data } = await axios.get(`${searchEndpoint}${catalogueIds}iiif/search?q=${wordToSearch}`);
         
         if (wordToSearch) {
           const resourceData = data['resources'].length > 0 ? data['resources'][Math.floor(Math.random() * data['resources'].length)] : null;
           const randomResource = {
             'ransomWord': wordToSearch,
-            'resource' : resourceData
+            'resource' : resourceData,
+            'catalogueId': catalogueIds,
           }
           const wordSearchResult = [ ...ransomResults, randomResource ]
           setRansomResults(wordSearchResult)
@@ -48,44 +49,46 @@ function App() {
   const couldNotFindWord = ransomResults.filter(ransomResult => !ransomResult.resource)
   const couldFindWord = ransomResults.filter(ransomResult => ransomResult.resource)
 
-  return (
-    <div className="App">
-      <div>
-        <h1>Primary Source Ransom Note Generator</h1>
-      </div>
-    <div class='input'>
-      <input
-        placeholder='Enter your demands...'
-        value={ransomNote}
-        onChange={handleChange}
-        />
-    </div>
-    { 
-      <div>
-        {couldFindWord.map(ransomResult => {
-          return <div>
-            <h3>{ransomResult.ransomWord}</h3>
-            <RansomWord ransomData={ransomResult}/>
-          </div>
-        })}
-        {couldNotFindWord.map(ransomResult => {
-          return <div>
-            <h3>{ransomResult.ransomWord}</h3>
-            <RansomLetters props={ransomResult}/>
-          </div>
-        })}
-      </div>
+  console.log(couldFindWord)
 
-    }
-    
-    {/* <div style={{'position': 'relative'}}>
-        <Mirador config={{
-          id: "mirador", windows: [{
-            loadedManifest: 'https://collections.maison-salins.fr/iiif/2/108217/manifest',
-            defaultSearchQuery: 'nous'
-          }],
-        }} plugins={[]} />
-      </div> */}
+  return (
+    <div className='app-body'>
+      <div className="App">
+        <div>
+          <h1>Primary Source Ransom Note Generator</h1>
+        </div>
+      <div className='input'>
+        <input
+          placeholder='Enter your demands...'
+          value={ransomNote}
+          onChange={handleChange}
+          />
+      </div>
+      { 
+        <div>
+          {couldFindWord.map(ransomResult => {
+            return <div>
+              <RansomWord ransomData={ransomResult}/>
+            </div>
+          })}
+          {couldNotFindWord.map(ransomResult => {
+            return <div>
+              <RansomLetters props={ransomResult}/>
+            </div>
+          })}
+        </div>
+
+      }
+      
+      {/* <div style={{'position': 'relative'}}>
+          <Mirador config={{
+            id: "mirador", windows: [{
+              loadedManifest: 'https://collections.maison-salins.fr/iiif/2/108217/manifest',
+              defaultSearchQuery: 'nous'
+            }],
+          }} plugins={[]} />
+        </div> */}
+      </div>
     </div>
   );
 }

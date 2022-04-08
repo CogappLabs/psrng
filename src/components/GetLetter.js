@@ -8,17 +8,21 @@ const GetLetter = ({props}) => {
 
   const [ letter, setLetter ] = useState()
 
-  const searchEndpoint = iiifEndpoints[0]['searchEndpoint']
-  const catalogueIds = iiifEndpoints[0]['catalogueIds'][0]
+  const searchEndpoint = iiifEndpoints[1]['searchEndpoint']
+  const catalogueIds = iiifEndpoints[1]['catalogueIds'][0]
+
+  console.log(`${searchEndpoint}${catalogueIds}iiif/search?q=${props}`)
 
   useEffect(() => {
     const getData = async() => {
-      const { data } = await axios.get(`${searchEndpoint}${catalogueIds}?q=${props}`);
+      const { data } = await axios.get(`${searchEndpoint}${catalogueIds}iiif/search?q=${props}`);
       console.log(data)
       const resourceData = data['resources'].length > 0 ? data['resources'][Math.floor(Math.random() * data['resources'].length)] : null;
       const randomResource = {
         'ransomWord': props,
-        'resource' : resourceData
+        'resource' : resourceData,
+        'catalogueId': catalogueIds,
+
       }
       setLetter(randomResource)
     }
@@ -32,7 +36,12 @@ const GetLetter = ({props}) => {
 
   return (
     <div>
-      <RansomWord ransomData={letter} />
+      { letter.resource ?
+        <RansomWord ransomData={letter} />
+        :
+        <p>{letter.ransomWord}</p>
+      }
+      
     </div>
   )
 }

@@ -7,8 +7,10 @@ export const iiifEndpoints = [
   },
   {
     'name': 'AGDA',
-    'catalogueIds' : ['fco/8/3509'],
+    'catalogueIds' : ['fo/371/109817/'],
     'searchEndpoint': 'https://www.agda.ae/en/catalogue/tna/',
     'imageEndpoint' : ''
   },
 ]
+
+// https://www.agda.ae/en/catalogue/tna/fo/371/109817/iiif/manifest
