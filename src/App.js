@@ -1,4 +1,5 @@
-import RansomWord from './components/ransomWord';
+import RansomWord from './components/RansomWord';
+import RansomLetters from './components/RansomLetters';
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
@@ -21,9 +22,7 @@ function App() {
         const { data } = await axios.get(`${searchEndpoint}${catalogueIds}?q=${wordToSearch}`);
         
         if (wordToSearch) {
-          console.log(data['resources'].length > 0)
           const resourceData = data['resources'].length > 0 ? data['resources'][Math.floor(Math.random() * data['resources'].length)] : null;
-          console.log(resourceData);
           const randomResource = {
             'ransomWord': wordToSearch,
             'resource' : resourceData
@@ -50,8 +49,6 @@ function App() {
   const couldNotFindWord = ransomResults.filter(ransomResult => !ransomResult.resource)
   const couldFindWord = ransomResults.filter(ransomResult => ransomResult.resource)
 
-  console.log(couldFindWord)
-
   return (
     <div className="App">
     <div>
@@ -72,6 +69,7 @@ function App() {
         {couldNotFindWord.map(ransomResult => {
           return <div>
             <h3>{ransomResult.ransomWord}</h3>
+            <RansomLetters props={ransomResult}/>
           </div>
         })}
       </div>

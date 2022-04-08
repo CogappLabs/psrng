@@ -16,8 +16,6 @@ const RansomWord = ({ransomData}) => {
   // https://iiif.wellcomecollection.org/image/b28047771_0022.jp2/481,2625,227,44/full/0/default.jpg
   const ransomImage = `${imageEndpoint}${imageId}/${imageDimensions[0]},${imageDimensions[1]},${imageDimensions[2]},${imageDimensions[3]}/full/0/default.jpg`
 
-  console.log(ransomImage)
-
   return (
     <div>
       <img src={`${ransomImage}`} alt={`OCR of ${ransomWord}`}/>  
