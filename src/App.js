@@ -1,10 +1,9 @@
 import RansomWord from './components/RansomWord';
 import RansomLetters from './components/RansomLetters';
-import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { iiifEndpoints } from './managed/iiifEndpoints'
-import Mirador from './Mirador';
+// import Mirador from './Mirador';
 
 function App() {
 
@@ -51,9 +50,12 @@ function App() {
 
   return (
     <div className="App">
-    <div>
+      <div>
+        <h1>Primary Source Ransom Note Generator</h1>
+      </div>
+    <div class='input'>
       <input
-        placeholder='Type your note...'
+        placeholder='Enter your demands...'
         value={ransomNote}
         onChange={handleChange}
         />
