@@ -11,6 +11,7 @@ function App() {
   const [ ransomNote, setRansomNote ] = useState('');
   const [ userInputWordsArray, setUserInputWordsArray ] = useState([])
   const [ ransomResults, setRansomResults ] = useState([])
+  const [ manifest, setManifest ] = useState('initial');
 
   const searchEndpoint = iiifEndpoints[0]['searchEndpoint']
   const catalogueIds = iiifEndpoints[0]['catalogueIds'][0]
@@ -35,7 +36,7 @@ function App() {
       }
     }
     getData();
-  },[userInputWordsArray])
+  },[userInputWordsArray, manifest])
 
   const handleChange = (event) => {
     const userInput = event.target.value;
@@ -79,11 +80,11 @@ function App() {
     {/* <div style={{'position': 'relative'}}>
         <Mirador config={{
           id: "mirador", windows: [{
-            loadedManifest: 'https://collections.maison-salins.fr/iiif/2/108217/manifest',
-            defaultSearchQuery: 'nous'
+            loadedManifest: '/manifest_template.json'
           }],
-        }} plugins={[]} />
+        }} plugins={[]} manifest={manifest}/>
       </div> */}
+
     </div>
   );
 }

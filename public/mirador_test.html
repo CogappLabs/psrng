@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/mirador@latest/dist/mirador.min.js"></script>
+    <title>Mirador test</title>
+  </head>
+  <body>
+    <div id="my-mirador"/> 
+
+    <script type="text/javascript">
+    var mirador = Mirador.viewer({
+      "id": "my-mirador",
+      "manifests": {
+        "https://collections.maison-salins.fr/iiif/2/108217/manifest": {
+          "provider": "Harvard University"
+        }
+      },
+      "windows": [
+        {
+          "loadedManifest": "https://collections.maison-salins.fr/iiif/2/108217/manifest",
+          "canvasIndex": 2,
+          "thumbnailNavigationPosition": 'far-bottom'
+        }
+      ]
+    });
+    </script>
+  </body>
+</html>
