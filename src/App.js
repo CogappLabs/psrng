@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Mirador from './Mirador';
 
 function App() {
 
@@ -53,7 +54,14 @@ function App() {
           </div>
        })}
      </div>
-
+     <div style={{'position': 'relative'}}>
+        <Mirador config={{
+          id: "mirador", windows: [{
+            loadedManifest: 'https://collections.maison-salins.fr/iiif/2/108217/manifest',
+            defaultSearchQuery: 'nous'
+          }],
+        }} plugins={[]} />
+      </div>
     </div>
   );
 }
