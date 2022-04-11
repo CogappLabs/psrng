@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react'
-import GetLetter from './GetLetter';
+import { searchManifestsForMatch } from '../managed/Utils'
 
-const RansomLetters = ({props}) => {
+const RansomLetters = ({letter, manifestData}) => {
+
   
-  const { ransomWord } = props;
 
-  const ransomLetters = ransomWord.split('')
+
+
 
   return (
     <div>
-      {ransomLetters.map((letter, index) => {
-        return <GetLetter key={index} props={letter}/>
-      })}
+      <p>{letter}</p>
     </div>
     
   )

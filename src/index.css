@@ -12,12 +12,28 @@ code {
     monospace;
 }
 .app-body {
-    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 90%;
 }
 
 .input {
-    min-width: 50%;
-    min-height: 5%;
+    min-width: 75%;
+    min-height: 2rem;
     margin: auto;
+}
 
+.words-panel {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.ransomWord {
+    margin: 1em;
+    border: 1px, solid, black;
+    border-radius: 5px;
 }
