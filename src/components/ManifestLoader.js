@@ -89,13 +89,13 @@ const ManifestLoader = ({language}) => {
         </div>
         <div className='ransom-words'>
           {userInputWordsArray.map((userInputWord,index) => {
-            return <div>
+            return <>
               < WordSearch 
                 key={index}
                 wordToSearch={userInputWord} 
                 manifestData={manifestData}
               />
-            </div>
+            </>
           })}
         </div>
       </div>

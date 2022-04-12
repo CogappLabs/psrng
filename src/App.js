@@ -17,9 +17,9 @@ function App() {
     <div className='app-body'>
       <div className='prsng-body'>
         <h1>Primary Source Ransom Note Generator</h1>
-        <div>
-          <h2>Select a language</h2>
-          <select onChange={handleLanguageSelection} value={language}>
+        <div className='language-select'>
+          <h3>Select a language: </h3>
+          <select onChange={handleLanguageSelection} value={language} className='language-option'>
             {availableLanguages.map(lang => {
               return <option
               key={lang}

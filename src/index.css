@@ -10,7 +10,6 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-width: 70%;
 }
 
 .demand {
@@ -23,8 +22,18 @@ body {
     margin: auto;
 }
 
-.ransom-output {
-    min-width: 95%;
+.prsng-body, .ransom-output {
+    min-width: 75%;
+}
+
+.language-select {
+    display: flex;
+    flex-direction: row;
+}
+
+.language-option {
+    margin: 5px;
+    border: 1px solid white;
 }
 
 .user-words {
@@ -39,6 +48,7 @@ body {
     border: 1px solid rgb(176, 184, 255);
     border-radius: 10px;
     min-width: 50px;
+    
 }
 
 .words-panel {
@@ -51,11 +61,15 @@ body {
 .ransom-letters, .ransom-words {
     display: flex;
     flex-direction: row;
-    min-height: 50vh;
+    flex-wrap: wrap;
+    
+    
 }
 
 .ransom-words {
     border: 1px solid rgb(176, 184, 255);
+    max-width: 90%;
+    min-height: 50vh;
 }
 
 .ransom-word {
