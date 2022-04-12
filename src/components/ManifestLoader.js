@@ -42,11 +42,11 @@ const ManifestLoader = ({language}) => {
 
   const handleChange = (event) => {
     const userInput = event.target.value;
+    const splitInput = userInput.split(' ').filter(input => input !== '')
     setRansomNote(userInput);
     if (userInput[userInput.length - 1] === ' ') {
-      setUserInputWordsArray(userInput.split(' ').filter(input => input !== ''));
-
-    }
+      setUserInputWordsArray(splitInput);
+    } 
   };
 
   const handleRemoveWord = (event) => {
@@ -87,10 +87,14 @@ const ManifestLoader = ({language}) => {
             </div>
           })}
         </div>
-        <div>
-          {userInputWordsArray.map(userInputWord => {
+        <div className='ransom-words'>
+          {userInputWordsArray.map((userInputWord,index) => {
             return <div>
-              <WordSearch wordToSearch={userInputWord} manifestData={manifestData} />
+              < WordSearch 
+                key={index}
+                wordToSearch={userInputWord} 
+                manifestData={manifestData}
+              />
             </div>
           })}
         </div>

@@ -46,17 +46,25 @@ const WordSearch = ({wordToSearch, manifestData}) => {
 
   return (
     <div>
-      {wordMatches !== undefined ? 
-          <RansomWord imageURLs={wordMatches} ransomWord={wordToSearch}/>
-    :
-    <div>
-        {wordToSearch.split('').map(letter => {
-          return <RansomLetters letterToSearch={letter} manifestData={manifestData}/>
-        })}
-    </div>
-    }
 
+        {wordMatches !== undefined ? 
+          <div>
+            <RansomWord imageURLs={wordMatches} ransomWord={wordToSearch}/>
+          </div>
+      :
+          <div>
+              {wordToSearch.split('').map((letter, index) => {
+                return <RansomLetters 
+                        key={index}
+                        letterToSearch={letter} 
+                        manifestData={manifestData}/>
+              })}
+          </div>
+      }
+
+      
     </div>
+
   )
 }
 
