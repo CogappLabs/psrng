@@ -13,8 +13,8 @@ const WordSearch = ({wordToSearch, manifestData}) => {
     let countdown = manifestData.length;
     let wordMatchArray = []
     manifestData.forEach(manifest => {
-      const getData = async() => {
-        const { data } = await axios.get(`${manifest['searchURL']}?q=${wordToSearch}`)
+      const getData = async(searchURL, stringToSearch) => {
+        const { data } = await axios.get(`${searchURL}?q=${stringToSearch}`)
         const wordResources =  data['resources']
         if(wordResources.length > 0) {
           const wordResourceImages = wordResources.map(resource => {
@@ -31,13 +31,12 @@ const WordSearch = ({wordToSearch, manifestData}) => {
           setWordMatches(wordMatchArray)
         } 
       }
-      getData()
+      getData(manifest['searchURL'],wordToSearch)
       countdown -= 1
       if (countdown === 0) {
         setSearchComplete(true)
       }
     });
-    
     
   },[wordToSearch])
 
@@ -52,7 +51,7 @@ const WordSearch = ({wordToSearch, manifestData}) => {
     :
     <div>
         {wordToSearch.split('').map(letter => {
-          return <RansomLetters letter={letter} manifestData={manifestData}/>
+          return <RansomLetters letterToSearch={letter} manifestData={manifestData}/>
         })}
     </div>
     }

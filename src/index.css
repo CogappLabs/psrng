@@ -37,3 +37,14 @@ code {
     border: 1px, solid, black;
     border-radius: 5px;
 }
+
+.ransom-letters {
+    display: flex;
+    flex-direction: row;
+};
+
+.ransom-letter {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid red;
+}

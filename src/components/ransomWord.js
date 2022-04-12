@@ -14,8 +14,8 @@ const RansomWord = ({imageURLs, ransomWord}) => {
   }
 
   return (
-    <div onClick={handleRandomiser}>
-      <img src={`${image}`} alt={`OCR of ${ransomWord}`}/>
+    <div onClick={handleRandomiser} className='ransom-letters'>
+      <img src={`${image}`} alt={`OCR of ${ransomWord}`} className='ransom-letter'/>
     </div>
   )
 }
