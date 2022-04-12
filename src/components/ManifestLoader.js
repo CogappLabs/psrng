@@ -5,18 +5,15 @@ import { multilingualManifests } from '../managed/iiifEndpoints'
 import WordSearch from './WordSearch';
 
 
-const ManifestLoader = () => {
+const ManifestLoader = ({language}) => {
 
-  const [language, setLanguage] = useState('en')
+
   const [selectedLanguageManifest, setSelectedLanguageManifest] = useState([])
   const [manifestData, setManifestData] = useState(null)
   const [ransomNote, setRansomNote] = useState('');
   const [userInputWordsArray, setUserInputWordsArray] = useState([]);
 
-  const availableLanguages = Object.keys(multilingualManifests);
-
   useEffect(() => {
-
     setSelectedLanguageManifest(multilingualManifests[`${language}`])
   }, [language])
 
@@ -42,9 +39,6 @@ const ManifestLoader = () => {
 
   }, [selectedLanguageManifest])
 
-  const handleLanguageSelection = (event) => {
-    setLanguage(event.target.value)
-  }
 
   const handleChange = (event) => {
     const userInput = event.target.value;
@@ -55,26 +49,22 @@ const ManifestLoader = () => {
     }
   };
 
+  const handleRemoveWord = (event) => {
+
+    const updatedUserInputWordsArray = userInputWordsArray.filter(userInput => userInput !== event.target.id)
+    setUserInputWordsArray(updatedUserInputWordsArray)
+    setRansomNote(updatedUserInputWordsArray.join(' '))
+
+  }
+
   if (!manifestData) {
     return null;
   }
 
   return (
-    <div>
-      <div>
+    <div className='prsng-body'>
+      <div className='demand'>
         <form>
-          <div>
-            <select onChange={handleLanguageSelection}>
-              {availableLanguages.map((availableLanguage, index) => {
-                return <option
-                  key={index}
-                  value={availableLanguage}
-                >
-                  {availableLanguage}
-                </option>
-              })}
-            </select>
-          </div>
           <div>
             <input
               className='input'
@@ -85,10 +75,14 @@ const ManifestLoader = () => {
           </div>
         </form>
       </div>
-      <div>
-        <div>
-          {userInputWordsArray.map(userInputWord => {
-            return <div>
+      <div className='ransom-output'>
+        <div className='user-words'>
+          {userInputWordsArray.map((userInputWord, index) => {
+            return <div
+                    key={index}
+                    className='user-word' 
+                    id={userInputWord}
+                    onClick={handleRemoveWord}>
               <h4>{userInputWord}</h4>
             </div>
           })}
@@ -101,17 +95,6 @@ const ManifestLoader = () => {
           })}
         </div>
       </div>
-      {/* <div>
-        <h3>Manifests:</h3>
-        {manifestData.map = (manifest => {
-          console.log('hello')
-          return <div>
-              <p>{manifest.label}</p>
-            </div>
-        })}
-      </div> */}
-
-
     </div>
   )
 }
