@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 
 
-const RansomWord = ({imageURLs, ransomWord}) => {
+const RansomWord = ({imageURLs, ransomWord, keyName }) => {
+
+  // console.log(keyName);
 
   const [ image, setImage ] = useState('')
 
@@ -14,8 +16,8 @@ const RansomWord = ({imageURLs, ransomWord}) => {
   }
 
   return (
-    <div onClick={handleRandomiser} className='ransom-letters'>
-      <img src={`${image}`} alt={`OCR of ${ransomWord}`} className='ransom-letter'/>
+    <div onClick={handleRandomiser} className={`ransom-${keyName}`}>
+      <img src={`${image}`} alt={`OCR of ${ransomWord}`} />
     </div>
   )
 }

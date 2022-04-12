@@ -7,10 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* * {
-    border: 1px solid red;
-} */
-
 .prsng-body {
     display: flex;
     flex-direction: column;
@@ -54,21 +50,23 @@ body {
     justify-content: flex-start;
 }
 
-.ransom-words {
-    border: 1px solid rgb(176, 184, 255);
+.ransom-letters, .ransom-words {
     display: flex;
     flex-direction: row;
-    min-height: 50%;
+    min-height: 50vh;
 }
 
-.ransom-letters {
-    border: 1px solid purple;
+.ransom-words {
+    border: 1px solid rgb(176, 184, 255);
+}
+
+.ransom-word {
+    /* border: 1px solid purple; */
     margin: 10px;
-};
+}
 
 .ransom-letter {
-    display: flex;
-    flex-direction: row;
-    
+    /* border: 1px solid red; */
+    margin: 2px;
 }
 

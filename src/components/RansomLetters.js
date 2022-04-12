@@ -50,7 +50,7 @@ const RansomLetters = ({letterToSearch, manifestData}) => {
   return (
     <div>
       {letterMatches !== undefined ? 
-          <RansomWord imageURLs={letterMatches} ransomWord={letterToSearch} className='ransom-letters'/>
+          <RansomWord imageURLs={letterMatches} ransomWord={letterToSearch} keyName={'letter'}/>
     :
     <div>
       {letterToSearch}

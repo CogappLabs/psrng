@@ -49,10 +49,10 @@ const WordSearch = ({wordToSearch, manifestData}) => {
 
         {wordMatches !== undefined ? 
           <div>
-            <RansomWord imageURLs={wordMatches} ransomWord={wordToSearch}/>
+            <RansomWord imageURLs={wordMatches} ransomWord={wordToSearch} keyName={'word'}/>
           </div>
       :
-          <div>
+          <div className='ransom-letters'>
               {wordToSearch.split('').map((letter, index) => {
                 return <RansomLetters 
                         key={index}
