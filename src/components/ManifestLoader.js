@@ -87,6 +87,10 @@ const ManifestLoader = ({language}) => {
             </div>
           })}
         </div>
+        <div className='hint'>
+          <p>Hint: click a word to remove it from the note</p>
+        </div>
+        
         <div className='ransom-words'>
           {userInputWordsArray.map((userInputWord,index) => {
             return <>
@@ -97,6 +101,9 @@ const ManifestLoader = ({language}) => {
               />
             </>
           })}
+        </div>
+        <div className='hint'>
+          <p>Hint: click on the returned word to try and find an alternative</p>
         </div>
       </div>
     </div>

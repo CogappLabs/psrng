@@ -10,6 +10,8 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    max-width: 85%;
+    margin: 0 auto;
 }
 
 .demand {
@@ -39,7 +41,8 @@ body {
 .user-words {
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .user-word {
@@ -48,37 +51,45 @@ body {
     border: 1px solid rgb(176, 184, 255);
     border-radius: 10px;
     min-width: 50px;
-    
+}
+
+.hint {
+    font-weight: lighter;
+    color: rgb(58, 58, 58);
+    margin: 0 25px;
 }
 
 .words-panel {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .ransom-letters, .ransom-words {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    
-    
+    justify-content: center;
 }
 
 .ransom-words {
     border: 1px solid rgb(176, 184, 255);
-    max-width: 90%;
+    border-radius: 15px;
+    max-width: 95%;
     min-height: 50vh;
+    margin: 1rem auto;
+}
+
+img:hover, .user-word:hover {
+    border: 1px solid rgb(119, 132, 252);
 }
 
 .ransom-word {
-    /* border: 1px solid purple; */
     margin: 10px;
 }
 
 .ransom-letter {
-    /* border: 1px solid red; */
     margin: 2px;
 }
 
