@@ -58,14 +58,6 @@ body {
     border: 1px solid rgb(193, 199, 253);
 }
 
-.ransom-word .remove, .ransom-word .refresh {
-    opacity: 0;
-}
-
-.ransom-word .remove:hover, .ransom-word .refresh:hover {
-    opacity: 1;
-}
-
 .word {
     margin: 10px;
 }
@@ -77,8 +69,10 @@ body {
 .remove, .refresh {
     text-align: center;
     font-size: smaller;
+    opacity: 0;
 }
 
 .remove:hover, .refresh:hover {
     font-weight: bolder;
+    opacity: 1;
 }

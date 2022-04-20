@@ -25,7 +25,9 @@ const RansomLetters = ({letterToSearch, manifestData}) => {
             })
             let imageURL = manifestImage[0]['images'][0]['resource']['@id']
             imageURL = imageURL.replace('full',generousImageCoords)
-            return imageURL
+            return {imageURL : imageURL,
+              label: manifest['label']
+              }
           })
           letterMatchArray = [...letterMatchArray, ...letterResourceImages]
           setLetterMatches(letterMatchArray)
@@ -50,7 +52,7 @@ const RansomLetters = ({letterToSearch, manifestData}) => {
   return (
     <div>
       {letterMatches !== undefined ? 
-          <RansomWord imageURLs={letterMatches} ransomWord={letterToSearch} keyName={'letter'}/>
+          <RansomWord imageMetadata={letterMatches} ransomWord={letterToSearch} keyName={'letter'}/>
     :
     <div>
       {letterToSearch}

@@ -25,7 +25,10 @@ const WordSearch = ({wordToSearch, manifestData}) => {
             })
             let imageURL = manifestImage[0]['images'][0]['resource']['@id']
             imageURL = imageURL.replace('full',imageCoords)
-            return imageURL
+            console.log(manifest['label'])
+            return {imageURL : imageURL,
+                    label: manifest['label']
+                    }
           })
           wordMatchArray = [...wordMatchArray, ...wordResourceImages]
           setWordMatches(wordMatchArray)
@@ -49,7 +52,7 @@ const WordSearch = ({wordToSearch, manifestData}) => {
 
         {wordMatches !== undefined ? 
           <>
-            <RansomWord imageURLs={wordMatches} ransomWord={wordToSearch} keyName={'word'}/>
+            <RansomWord imageMetadata={wordMatches} ransomWord={wordToSearch} keyName={'word'}/>
           </>
       :
           <div className='ransom-letters'>

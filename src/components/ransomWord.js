@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
 
 
-const RansomWord = ({imageURLs, ransomWord, keyName }) => {
+const RansomWord = ({imageMetadata, ransomWord, keyName }) => {
 
   const [ image, setImage ] = useState('')
 
   useEffect(() => {
-    setImage(imageURLs[Math.floor(Math.random() * imageURLs.length)])
-  },[imageURLs])
+    setImage(imageMetadata[Math.floor(Math.random() * imageMetadata.length)])
+  },[imageMetadata])
 
   const handleRandomiser = () => {
-    setImage(imageURLs[Math.floor(Math.random() * imageURLs.length)])
+    setImage(imageMetadata[Math.floor(Math.random() * imageMetadata.length)])
   }
 
   return (
     <div className={`${keyName}`}>
-      <img src={`${image}`} alt={`OCR of ${ransomWord}`} />
-      { imageURLs.length > 1 ?
+      <img src={`${image.imageURL}`} alt={`OCR of ${ransomWord}`} />
+      { imageMetadata.length > 1 ?
         <div
           onClick={handleRandomiser}
           className='refresh'
@@ -24,6 +24,7 @@ const RansomWord = ({imageURLs, ransomWord, keyName }) => {
         :
         <div className='refresh'>This is the only image found for "{ransomWord}"</div>
       }
+      {/* <p>{image.label}</p> */}
     </div>
   )
 }
