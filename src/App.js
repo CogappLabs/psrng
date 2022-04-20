@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { multilingualManifests } from './managed/iiifEndpoints'
 import ManifestLoader from './components/ManifestLoader';

@@ -3,8 +3,6 @@ import React, { useEffect, useState } from 'react'
 
 const RansomWord = ({imageURLs, ransomWord, keyName }) => {
 
-  // console.log(keyName);
-
   const [ image, setImage ] = useState('')
 
   useEffect(() => {
@@ -16,8 +14,16 @@ const RansomWord = ({imageURLs, ransomWord, keyName }) => {
   }
 
   return (
-    <div onClick={handleRandomiser} className={`ransom-${keyName}`}>
+    <div className={`${keyName}`}>
       <img src={`${image}`} alt={`OCR of ${ransomWord}`} />
+      { imageURLs.length > 1 ?
+        <div
+          onClick={handleRandomiser}
+          className='refresh'
+        >Refresh "{ransomWord}"</div>
+        :
+        <div className='refresh'>This is the only image found for "{ransomWord}"</div>
+      }
     </div>
   )
 }

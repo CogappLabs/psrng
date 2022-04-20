@@ -76,34 +76,23 @@ const ManifestLoader = ({language}) => {
         </form>
       </div>
       <div className='ransom-output'>
-        <div className='user-words'>
-          {userInputWordsArray.map((userInputWord, index) => {
-            return <div
-                    key={index}
-                    className='user-word' 
-                    id={userInputWord}
-                    onClick={handleRemoveWord}>
-              <h4>{userInputWord}</h4>
-            </div>
-          })}
-        </div>
-        <div className='hint'>
-          <p>Hint: click a word to remove it from the note</p>
-        </div>
-        
         <div className='ransom-words'>
           {userInputWordsArray.map((userInputWord,index) => {
-            return <>
+            return <div className='ransom-word'>
+              <div
+              id={userInputWord}
+              onClick={handleRemoveWord}
+              className='remove'
+              >
+                Remove "{userInputWord}"
+              </div>
               < WordSearch 
                 key={index}
                 wordToSearch={userInputWord} 
                 manifestData={manifestData}
               />
-            </>
+            </div>
           })}
-        </div>
-        <div className='hint'>
-          <p>Hint: click on the returned word to try and find an alternative</p>
         </div>
       </div>
     </div>

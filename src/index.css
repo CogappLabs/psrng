@@ -15,7 +15,7 @@ body {
 }
 
 .demand {
-    min-width: 50%;
+    min-width: 55%;
 }
 
 .input {
@@ -38,39 +38,12 @@ body {
     border: 1px solid white;
 }
 
-.user-words {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.user-word {
-    margin: 10px;
-    padding: 5px;
-    border: 1px solid rgb(176, 184, 255);
-    border-radius: 10px;
-    min-width: 50px;
-}
-
-.hint {
-    font-weight: lighter;
-    color: rgb(58, 58, 58);
-    margin: 0 25px;
-}
-
-.words-panel {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-}
-
 .ransom-letters, .ransom-words {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: flex-start;
 }
 
 .ransom-words {
@@ -81,15 +54,31 @@ body {
     margin: 1rem auto;
 }
 
-img:hover, .user-word:hover {
-    border: 1px solid rgb(119, 132, 252);
+.ransom-word:hover {
+    border: 1px solid rgb(193, 199, 253);
 }
 
-.ransom-word {
+.ransom-word .remove, .ransom-word .refresh {
+    opacity: 0;
+}
+
+.ransom-word .remove:hover, .ransom-word .refresh:hover {
+    opacity: 1;
+}
+
+.word {
     margin: 10px;
 }
 
-.ransom-letter {
+.letter {
     margin: 2px;
 }
 
+.remove, .refresh {
+    text-align: center;
+    font-size: smaller;
+}
+
+.remove:hover, .refresh:hover {
+    font-weight: bolder;
+}
