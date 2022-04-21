@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
+import { FaRedo } from 'react-icons/fa';
 
 
 const RansomWord = ({imageMetadata, ransomWord, keyName, language, wordIndex }) => {
@@ -25,7 +26,7 @@ const RansomWord = ({imageMetadata, ransomWord, keyName, language, wordIndex }) 
         <div
           onClick={handleRandomiser}
           className='refresh'
-        >{t('refresh')} "{ransomWord}"</div>
+        ><FaRedo /></div>
         :
         <div className='refresh'>This is the only image found for "{ransomWord}"</div>
       }

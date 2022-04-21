@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { FaTrashAlt } from 'react-icons/fa';
 
 import { multilingualManifests } from '../managed/iiifEndpoints'
 import WordSearch from './WordSearch';
@@ -15,7 +16,7 @@ const ManifestLoader = ({language}) => {
   const [manifestData, setManifestData] = useState(null)
   const [ransomNote, setRansomNote] = useState('');
   const [userInputWordsArray, setUserInputWordsArray] = useState([]);
-  const [ matchedManifests, setMatchedManifests ] = useState({})
+  const [ matchedManifests, setMatchedManifests ] = useState()
 
   useEffect(() => {
     setSelectedLanguageManifest(multilingualManifests[`${language}`])
@@ -56,14 +57,15 @@ const ManifestLoader = ({language}) => {
 
   const handleRemoveWord = (event) => {
 
-    const updatedUserInputWordsArray = userInputWordsArray.filter(userInput => userInput !== event.target.id)
+    const ransomWord = event.target.id.split('_')[1]
+    const updatedUserInputWordsArray = userInputWordsArray.filter(userInput => userInput !== ransomWord)
     setUserInputWordsArray(updatedUserInputWordsArray)
     setRansomNote(updatedUserInputWordsArray.join(' '))
 
-    // delete matchedManifests[event.target.name]
-    setMatchedManifests(delete matchedManifests[event.target.name])
+    const filterMatchedManifest = {...matchedManifests}
+    delete filterMatchedManifest[event.target.id]
+    setMatchedManifests(filterMatchedManifest)
 
-    // console.log(matchedManifests)
   }
 
   const handleShit = (event) => {
@@ -109,12 +111,11 @@ const ManifestLoader = ({language}) => {
                     onLoad={handleShit}
                   >
                   <div
-                  id={userInputWord}
-                  name={`${index}_${userInputWord}`}
+                  id={`${index}_${userInputWord}`}
                   onClick={handleRemoveWord}
-                  className='remove test'
+                  className='remove'
                   >
-                    {t("remove")} "{userInputWord}"
+                    <FaTrashAlt />
                   </div>
                   < WordSearch 
                     wordToSearch={userInputWord} 
@@ -125,9 +126,14 @@ const ManifestLoader = ({language}) => {
                 </div>
           })}
         </div>
-        <div>
-          <ManifestPanel matchedManifests={matchedManifests} />
+        <div className='manifest-panel'>
+        <h4>Matched manifests</h4>
+          { matchedManifests !== undefined &&
+              <ManifestPanel matchedManifests={matchedManifests} />
+          }
         </div>
+
+
       </div>
     </div>
   )

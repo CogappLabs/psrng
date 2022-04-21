@@ -8,7 +8,6 @@ const ManifestPanel = ({matchedManifests}) => {
 
   return (
     <div>
-      <h4>Matched manifests</h4>
       {manifestData.map((manifest, index) => {
         return <div key={index}>
             <p>{manifest.ransomWord}: <a href={`${manifest.manifestId}`}>{manifest.label}</a></p>
