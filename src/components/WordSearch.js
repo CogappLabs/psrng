@@ -3,7 +3,7 @@ import axios from 'axios';
 import RansomWord from './RansomWord';
 import RansomLetters from './RansomLetters';
 
-const WordSearch = ({wordToSearch, manifestData}) => {
+const WordSearch = ({wordToSearch, manifestData, language}) => {
 
   const [ wordMatches, setWordMatches ] = useState()
   const [ searchComplete, setSearchComplete ] = useState(false)
@@ -25,7 +25,6 @@ const WordSearch = ({wordToSearch, manifestData}) => {
             })
             let imageURL = manifestImage[0]['images'][0]['resource']['@id']
             imageURL = imageURL.replace('full',imageCoords)
-            console.log(manifest['label'])
             return {imageURL : imageURL,
                     label: manifest['label']
                     }
@@ -52,7 +51,12 @@ const WordSearch = ({wordToSearch, manifestData}) => {
 
         {wordMatches !== undefined ? 
           <>
-            <RansomWord imageMetadata={wordMatches} ransomWord={wordToSearch} keyName={'word'}/>
+            <RansomWord
+              imageMetadata={wordMatches}
+              ransomWord={wordToSearch}
+              keyName={'word'}
+              language={language}
+            />
           </>
       :
           <div className='ransom-letters'>
@@ -60,7 +64,9 @@ const WordSearch = ({wordToSearch, manifestData}) => {
                 return <RansomLetters 
                         key={index}
                         letterToSearch={letter} 
-                        manifestData={manifestData}/>
+                        manifestData={manifestData}
+                        language={language}
+                      />
               })}
           </div>
       }

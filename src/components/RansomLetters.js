@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import RansomWord from './RansomWord';
 
-const RansomLetters = ({letterToSearch, manifestData}) => {
+const RansomLetters = ({letterToSearch, manifestData, language}) => {
 
   const [ letterMatches, setLetterMatches ] = useState()
   const [ searchComplete, setSearchComplete ] = useState(false)
@@ -52,7 +52,12 @@ const RansomLetters = ({letterToSearch, manifestData}) => {
   return (
     <div>
       {letterMatches !== undefined ? 
-          <RansomWord imageMetadata={letterMatches} ransomWord={letterToSearch} keyName={'letter'}/>
+          <RansomWord 
+            imageMetadata={letterMatches} 
+            ransomWord={letterToSearch} 
+            language={language}
+            keyName={'letter'}
+          />
     :
     <div>
       {letterToSearch}

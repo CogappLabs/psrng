@@ -52,10 +52,12 @@ body {
     max-width: 95%;
     min-height: 50vh;
     margin: 1rem auto;
+    color: rgba(0, 0, 0, 0);
 }
 
 .ransom-word:hover {
     border: 1px solid rgb(193, 199, 253);
+    color: black;
 }
 
 .word {
@@ -69,10 +71,8 @@ body {
 .remove, .refresh {
     text-align: center;
     font-size: smaller;
-    opacity: 0;
 }
 
 .remove:hover, .refresh:hover {
     font-weight: bolder;
-    opacity: 1;
 }

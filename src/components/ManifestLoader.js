@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 import { multilingualManifests } from '../managed/iiifEndpoints'
 import WordSearch from './WordSearch';
@@ -7,6 +8,7 @@ import WordSearch from './WordSearch';
 
 const ManifestLoader = ({language}) => {
 
+  const { t, i18n } = useTranslation()
 
   const [selectedLanguageManifest, setSelectedLanguageManifest] = useState([])
   const [manifestData, setManifestData] = useState(null)
@@ -15,7 +17,8 @@ const ManifestLoader = ({language}) => {
 
   useEffect(() => {
     setSelectedLanguageManifest(multilingualManifests[`${language}`])
-  }, [language])
+    i18n.changeLanguage(language)
+  }, [language, i18n])
 
   useEffect(() => {
     let manifestArray = []
@@ -68,7 +71,7 @@ const ManifestLoader = ({language}) => {
           <div>
             <input
               className='input'
-              placeholder='Enter your demands...'
+              placeholder={t("demands-input")}
               value={ransomNote}
               onChange={handleChange}
             />
@@ -87,11 +90,12 @@ const ManifestLoader = ({language}) => {
               onClick={handleRemoveWord}
               className='remove'
               >
-                Remove "{userInputWord}"
+                {t("remove")} "{userInputWord}"
               </div>
               < WordSearch 
                 wordToSearch={userInputWord} 
                 manifestData={manifestData}
+                language={language}
               />
             </div>
           })}

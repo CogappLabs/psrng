@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
 
 
-const RansomWord = ({imageMetadata, ransomWord, keyName }) => {
+const RansomWord = ({imageMetadata, ransomWord, keyName, language }) => {
 
   const [ image, setImage ] = useState('')
+  const { t, i18n } = useTranslation()
 
   useEffect(() => {
     setImage(imageMetadata[Math.floor(Math.random() * imageMetadata.length)])
-  },[imageMetadata])
+    i18n.changeLanguage(language)
+  },[i18n, imageMetadata, language])
 
   const handleRandomiser = () => {
     setImage(imageMetadata[Math.floor(Math.random() * imageMetadata.length)])
@@ -20,7 +23,7 @@ const RansomWord = ({imageMetadata, ransomWord, keyName }) => {
         <div
           onClick={handleRandomiser}
           className='refresh'
-        >Refresh "{ransomWord}"</div>
+        >{t('refresh')} "{ransomWord}"</div>
         :
         <div className='refresh'>This is the only image found for "{ransomWord}"</div>
       }
