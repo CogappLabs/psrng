@@ -2,8 +2,6 @@ import React from 'react'
 
 const ManifestPanel = ({matchedManifests}) => {
 
-  
-
   const manifestData = Object.values(matchedManifests)
 
   return (

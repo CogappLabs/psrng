@@ -45,13 +45,12 @@ body {
 }
 
 .manifest-panel {
-    max-width: 25%;
-    padding: 5px;
+    width: 25%;
+    padding: 5px 10px;
 }
 
 .ransom-words {
-    max-width: 95%;
-    min-width: 70%;
+    width: 70%;
     color: rgba(0, 0, 0, 0);
 }
 

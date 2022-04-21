@@ -58,12 +58,18 @@ const ManifestLoader = ({language}) => {
   const handleRemoveWord = (event) => {
 
     const ransomWord = event.target.id.split('_')[1]
+    const ransomWordId = event.target.id.split('_')[0]
     const updatedUserInputWordsArray = userInputWordsArray.filter(userInput => userInput !== ransomWord)
     setUserInputWordsArray(updatedUserInputWordsArray)
     setRansomNote(updatedUserInputWordsArray.join(' '))
 
     const filterMatchedManifest = {...matchedManifests}
-    delete filterMatchedManifest[event.target.id]
+    if (filterMatchedManifest[event.target.id]){
+      delete filterMatchedManifest[event.target.id]
+    } else {
+      const letterIdArray = ransomWord.split('').map(letter => `${ransomWordId}_${letter}`)
+      letterIdArray.forEach(letterId => delete filterMatchedManifest[letterId])
+    }
     setMatchedManifests(filterMatchedManifest)
 
   }
@@ -127,7 +133,7 @@ const ManifestLoader = ({language}) => {
           })}
         </div>
         <div className='manifest-panel'>
-        <h4>Matched manifests</h4>
+        <h4>{t('matched-manifests')}</h4>
           { matchedManifests !== undefined &&
               <ManifestPanel matchedManifests={matchedManifests} />
           }

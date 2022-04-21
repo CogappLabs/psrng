@@ -4,5 +4,6 @@
   "demands-input" : "Enter your demands...",
   "refresh": "Refresh",
   "remove": "Remove",
-  "info" : "See more information"
+  "info" : "See more information",
+  "matched-manifests": "Matched manifests"
 }
