@@ -88,7 +88,7 @@ const ManifestLoader = ({language}) => {
               <div
               id={userInputWord}
               onClick={handleRemoveWord}
-              className='remove'
+              className='remove test'
               >
                 {t("remove")} "{userInputWord}"
               </div>
