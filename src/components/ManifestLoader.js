@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { multilingualManifests } from '../managed/iiifEndpoints'
 import WordSearch from './WordSearch';
+import ManifestPanel from './ManifestPanel';
 
 
 const ManifestLoader = ({language}) => {
@@ -14,6 +15,7 @@ const ManifestLoader = ({language}) => {
   const [manifestData, setManifestData] = useState(null)
   const [ransomNote, setRansomNote] = useState('');
   const [userInputWordsArray, setUserInputWordsArray] = useState([]);
+  const [ matchedManifests, setMatchedManifests ] = useState([])
 
   useEffect(() => {
     setSelectedLanguageManifest(multilingualManifests[`${language}`])
@@ -60,6 +62,17 @@ const ManifestLoader = ({language}) => {
 
   }
 
+  const handleShit = (event) => {
+    
+    const newMatchedManifest = {
+      ransomWord : event.target.name.split('---')[0],
+      manifestId : event.target.name.split('---')[1],
+      label : event.target.name.split('---')[2]
+    }
+    setMatchedManifests([...matchedManifests, newMatchedManifest])
+
+  }
+
   if (!manifestData) {
     return null;
   }
@@ -84,6 +97,7 @@ const ManifestLoader = ({language}) => {
             return <div 
                     className='ransom-word'
                     key={index}
+                    onLoad={handleShit}
                   >
               <div
               id={userInputWord}
@@ -96,9 +110,13 @@ const ManifestLoader = ({language}) => {
                 wordToSearch={userInputWord} 
                 manifestData={manifestData}
                 language={language}
+                
               />
             </div>
           })}
+        </div>
+        <div>
+          <ManifestPanel matchedManifests={matchedManifests} />
         </div>
       </div>
     </div>

@@ -26,7 +26,8 @@ const WordSearch = ({wordToSearch, manifestData, language}) => {
             let imageURL = manifestImage[0]['images'][0]['resource']['@id']
             imageURL = imageURL.replace('full',imageCoords)
             return {imageURL : imageURL,
-                    label: manifest['label']
+                    label: manifest['label'],
+                    manifestId: manifest['manifestId']
                     }
           })
           wordMatchArray = [...wordMatchArray, ...wordResourceImages]

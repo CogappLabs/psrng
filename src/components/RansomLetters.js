@@ -26,7 +26,8 @@ const RansomLetters = ({letterToSearch, manifestData, language}) => {
             let imageURL = manifestImage[0]['images'][0]['resource']['@id']
             imageURL = imageURL.replace('full',generousImageCoords)
             return {imageURL : imageURL,
-              label: manifest['label']
+              label: manifest['label'],
+              manifestId: manifest['manifestId']
               }
           })
           letterMatchArray = [...letterMatchArray, ...letterResourceImages]
@@ -40,7 +41,7 @@ const RansomLetters = ({letterToSearch, manifestData, language}) => {
       }
     });
     
-  },[letterToSearch])
+  },[letterToSearch, manifestData])
 
 
   if(!searchComplete ){

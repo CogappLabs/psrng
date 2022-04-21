@@ -65,7 +65,7 @@ body {
 }
 
 .letter {
-    margin: 2px;
+    margin: 0;
 }
 
 .remove, .refresh {
