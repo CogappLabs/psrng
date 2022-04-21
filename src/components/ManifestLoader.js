@@ -15,7 +15,7 @@ const ManifestLoader = ({language}) => {
   const [manifestData, setManifestData] = useState(null)
   const [ransomNote, setRansomNote] = useState('');
   const [userInputWordsArray, setUserInputWordsArray] = useState([]);
-  const [ matchedManifests, setMatchedManifests ] = useState([])
+  const [ matchedManifests, setMatchedManifests ] = useState({})
 
   useEffect(() => {
     setSelectedLanguageManifest(multilingualManifests[`${language}`])
@@ -60,16 +60,25 @@ const ManifestLoader = ({language}) => {
     setUserInputWordsArray(updatedUserInputWordsArray)
     setRansomNote(updatedUserInputWordsArray.join(' '))
 
+    // delete matchedManifests[event.target.name]
+    setMatchedManifests(delete matchedManifests[event.target.name])
+
+    // console.log(matchedManifests)
   }
 
   const handleShit = (event) => {
+
+    const ransomWordId = event.target.name.split('---')[0]
     
     const newMatchedManifest = {
-      ransomWord : event.target.name.split('---')[0],
-      manifestId : event.target.name.split('---')[1],
-      label : event.target.name.split('---')[2]
+        ransomWord : event.target.name.split('---')[0].split('_')[1],
+        manifestId : event.target.name.split('---')[1],
+        label : event.target.name.split('---')[2]
+  
+
     }
-    setMatchedManifests([...matchedManifests, newMatchedManifest])
+    const newData = { ...matchedManifests, [ransomWordId]: newMatchedManifest}
+    setMatchedManifests(newData)
 
   }
 
@@ -99,20 +108,21 @@ const ManifestLoader = ({language}) => {
                     key={index}
                     onLoad={handleShit}
                   >
-              <div
-              id={userInputWord}
-              onClick={handleRemoveWord}
-              className='remove test'
-              >
-                {t("remove")} "{userInputWord}"
-              </div>
-              < WordSearch 
-                wordToSearch={userInputWord} 
-                manifestData={manifestData}
-                language={language}
-                
-              />
-            </div>
+                  <div
+                  id={userInputWord}
+                  name={`${index}_${userInputWord}`}
+                  onClick={handleRemoveWord}
+                  className='remove test'
+                  >
+                    {t("remove")} "{userInputWord}"
+                  </div>
+                  < WordSearch 
+                    wordToSearch={userInputWord} 
+                    manifestData={manifestData}
+                    language={language}
+                    wordIndex={index}
+                  />
+                </div>
           })}
         </div>
         <div>

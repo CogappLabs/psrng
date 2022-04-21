@@ -3,7 +3,7 @@ import axios from 'axios';
 import RansomWord from './RansomWord';
 import RansomLetters from './RansomLetters';
 
-const WordSearch = ({wordToSearch, manifestData, language}) => {
+const WordSearch = ({wordToSearch, manifestData, language, wordIndex}) => {
 
   const [ wordMatches, setWordMatches ] = useState()
   const [ searchComplete, setSearchComplete ] = useState(false)
@@ -57,6 +57,7 @@ const WordSearch = ({wordToSearch, manifestData, language}) => {
               ransomWord={wordToSearch}
               keyName={'word'}
               language={language}
+              wordIndex={wordIndex}
             />
           </>
       :
@@ -67,6 +68,7 @@ const WordSearch = ({wordToSearch, manifestData, language}) => {
                         letterToSearch={letter} 
                         manifestData={manifestData}
                         language={language}
+                        wordIndex={wordIndex}
                       />
               })}
           </div>
