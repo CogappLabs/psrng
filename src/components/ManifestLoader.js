@@ -78,7 +78,10 @@ const ManifestLoader = ({language}) => {
       <div className='ransom-output'>
         <div className='ransom-words'>
           {userInputWordsArray.map((userInputWord,index) => {
-            return <div className='ransom-word'>
+            return <div 
+                    className='ransom-word'
+                    key={index}
+                  >
               <div
               id={userInputWord}
               onClick={handleRemoveWord}
@@ -87,7 +90,6 @@ const ManifestLoader = ({language}) => {
                 Remove "{userInputWord}"
               </div>
               < WordSearch 
-                key={index}
                 wordToSearch={userInputWord} 
                 manifestData={manifestData}
               />
