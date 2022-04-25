@@ -88,3 +88,14 @@ body {
     padding: 5px;
 }
 
+@media screen and (max-width: 450px) {
+    .prsng-body, .ransom-output {
+        min-width: 95%;
+    }
+    .demand, .ransom-words, .manifest-panel {
+        min-width: 90%;
+    }
+    .ransom-output {
+        flex-direction: column;
+    }
+}
