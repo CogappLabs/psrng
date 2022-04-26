@@ -28,7 +28,7 @@ const ManifestLoader = ({language}) => {
     selectedLanguageManifest.forEach(manifestURL => {
       const getData = async () => {
         const { data } = await axios.get(manifestURL)
-        const searchService = data['service'].filter(service => service['@context'] === 'http://iiif.io/api/search/1/context.json')
+        const searchService = data['service'].filter(service => service['@context'].indexOf( 'http://iiif.io/api/search/' ) > -1)
         if (searchService.length > 0) {
           const returnedManifestData = {
             'label': data['label']['@value'],
