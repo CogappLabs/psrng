@@ -24,7 +24,8 @@ const WordSearch = ({wordToSearch, manifestData, language, wordIndex}) => {
               return canvas['@id'] === resourceCanvas
             })
             let imageURL = manifestImage[0]['images'][0]['resource']['@id']
-            imageURL = imageURL.replace('full',imageCoords)
+            imageURL = `${imageURL.split('full')[0]}${imageCoords}/full/0/default.jpg`
+
             return {imageURL : imageURL,
                     label: manifest['label'],
                     manifestId: manifest['manifestId']
