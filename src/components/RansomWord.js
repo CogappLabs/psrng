@@ -7,7 +7,7 @@ const RansomWord = ({imageMetadata, ransomWord, keyName, language, wordIndex }) 
 
   const [ image, setImage ] = useState('')
 
-  const { t, i18n } = useTranslation()
+  const { i18n } = useTranslation()
 
   useEffect(() => {
     setImage(imageMetadata[Math.floor(Math.random() * imageMetadata.length)])
