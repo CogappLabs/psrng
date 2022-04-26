@@ -71,6 +71,7 @@ body {
 
 .ransom-word:hover {
     border: 1px solid rgb(193, 199, 253);
+    border-radius: 15px;
     color: black;
 }
 
@@ -85,7 +86,22 @@ body {
 
 .remove, .refresh {
     text-align: center;
-    padding: 5px;
+    padding: 7px;
+    margin: 0 auto;
+}
+
+.remove:hover, .refresh:hover {
+    background-color: rgba(193, 199, 253, 0.25);
+}
+
+.remove:hover{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.refresh:hover {
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;    
 }
 
 @media screen and (max-width: 450px) {

@@ -57,6 +57,10 @@ const ManifestLoader = ({language}) => {
 
   const handleRemoveWord = (event) => {
 
+    if(!event.target.id) {
+      console.log('No button')
+      return null;
+    }
     const ransomWord = event.target.id.split('_')[1]
     const ransomWordId = event.target.id.split('_')[0]
     const updatedUserInputWordsArray = userInputWordsArray.filter(userInput => userInput !== ransomWord)
@@ -74,7 +78,7 @@ const ManifestLoader = ({language}) => {
 
   }
 
-  const handleShit = (event) => {
+  const handleManifestLoad = (event) => {
 
     const ransomWordId = event.target.name.split('---')[0]
     
@@ -114,14 +118,16 @@ const ManifestLoader = ({language}) => {
             return <div 
                     className='ransom-word'
                     key={index}
-                    onLoad={handleShit}
+                    onLoad={handleManifestLoad}
                   >
                   <div
                   id={`${index}_${userInputWord}`}
                   onClick={handleRemoveWord}
                   className='remove'
                   >
-                    <FaTrashAlt />
+                    <FaTrashAlt 
+                    className='icon'
+                  />
                   </div>
                   < WordSearch 
                     wordToSearch={userInputWord} 
