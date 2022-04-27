@@ -13,12 +13,13 @@ const WordSearch = ({wordToSearch, manifestData, language, wordIndex}) => {
     let countdown = manifestData.length;
     let wordMatchArray = []
     manifestData.forEach(manifest => {
+      
       const getData = async(searchURL, stringToSearch) => {
         const { data } = await axios.get(`${searchURL}?q=${stringToSearch}`)
         const wordResources =  data['resources']
         if(wordResources.length > 0) {
           const wordResourceImages = wordResources.map(resource => {
-            const resourceCanvas = resource['on'].split('#')[0]
+            const resourceCanvas = language === 'ar' ? resource['on'].split('#')[0].replace('en','العربية') : resource['on'].split('#')[0]
             const imageCoords = resource['on'].split('=')[1]
             const manifestImage = manifest['canvases'].filter(canvas => {
               return canvas['@id'] === resourceCanvas

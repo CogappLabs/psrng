@@ -23,8 +23,7 @@ const RansomLetters = ({letterToSearch, manifestData, language, wordIndex}) => {
             const manifestImage = manifest['canvases'].filter(canvas => {
               return canvas['@id'] === resourceCanvas
             })
-            // let imageURL = manifestImage[0]['images'][0]['resource']['@id']
-            // imageURL = imageURL.replace('full',generousImageCoords)
+
             const  imageURL = `${manifestImage[0]['images'][0]['resource']['service']['@id']}/${generousImageCoords}/full/0/default.jpg`
 
             return {imageURL : imageURL,

@@ -4,9 +4,9 @@ export const multilingualManifests = {
     'https://www.agda.ae/العربية/catalogue/tna/fo/93/137/iiif/manifest',
     'https://www.agda.ae/العربية/catalogue/tna/fo/371/126991/iiif/manifest',
     'https://www.agda.ae/العربية/catalogue/tna/fo/1016/83/iiif/manifest',
-    'https://www.agda.ae/العربية/catalogue/tna/fo/8/2485/iiif/manifest',
-    'https://www.agda.ae/العربية/catalogue/tna/fo/8/68/iiif/manifest',
-    'https://www.agda.ae/العربية/catalogue/tna/fo/8/1268/iiif/manifest',
+    'https://www.agda.ae/العربية/catalogue/tna/fco/8/2485/iiif/manifest',
+    'https://www.agda.ae/العربية/catalogue/tna/fco/8/68/iiif/manifest',
+    'https://www.agda.ae/العربية/catalogue/tna/fco/8/1268/iiif/manifest',
     'https://www.agda.ae/العربية/catalogue/tna/fo/371/120583/iiif/manifest'
   ],
   'en' : [
