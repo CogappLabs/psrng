@@ -30,8 +30,9 @@ const ManifestLoader = ({language}) => {
         const { data } = await axios.get(manifestURL)
         const searchService = data['service'].filter(service => service['@context'].indexOf( 'http://iiif.io/api/search/' ) > -1)
         if (searchService.length > 0) {
+          const manifestLabel = typeof data['label'] === 'string' ? data['label'] : data['label']['@value']
           const returnedManifestData = {
-            'label': data['label']['@value'],
+            'label': manifestLabel,
             'manifestId': data['@id'],
             'canvases': data['sequences'][0]['canvases'],
             'searchURL': searchService[0]['@id']

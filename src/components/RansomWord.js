@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { useTranslation } from 'react-i18next';
 import { FaRedo } from 'react-icons/fa';
 
 
-const RansomWord = ({imageMetadata, ransomWord, keyName, language, wordIndex }) => {
+const RansomWord = ({imageMetadata, ransomWord, keyName, wordIndex }) => {
 
   const [ image, setImage ] = useState('')
 
-  const { i18n } = useTranslation()
-
   useEffect(() => {
     setImage(imageMetadata[Math.floor(Math.random() * imageMetadata.length)])
-    i18n.changeLanguage(language)
-  },[i18n, imageMetadata, language])
+  },[imageMetadata])
 
   const handleRandomiser = () => {
     setImage(imageMetadata[Math.floor(Math.random() * imageMetadata.length)])
+  }
+
+  if(!image) {
+    return null;
   }
 
 

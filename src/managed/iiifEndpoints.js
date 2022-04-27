@@ -11,8 +11,8 @@ export const multilingualManifests = {
   ],
   'en' : [
     'https://www.agda.ae/en/catalogue/tna/fo/93/137/iiif/manifest',
-    'https://www.agda.ae/en/catalogue/tna/fo/8/3812/iiif/manifest', 
-    'https://www.agda.ae/en/catalogue/tna/fo/8/538/iiif/manifest', 
+    'https://www.agda.ae/en/catalogue/tna/fco/8/3812/iiif/manifest', 
+    'https://www.agda.ae/en/catalogue/tna/fco/8/538/iiif/manifest', 
     'https://www.agda.ae/en/catalogue/tna/fo/1016/835/iiif/manifest', 
     'https://www.agda.ae/en/catalogue/tna/fo/371/132832/iiif/manifest', 
     'https://iiif.wellcomecollection.org/presentation/v2/b28047771/',

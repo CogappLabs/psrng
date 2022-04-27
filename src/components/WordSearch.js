@@ -23,17 +23,19 @@ const WordSearch = ({wordToSearch, manifestData, language, wordIndex}) => {
             const manifestImage = manifest['canvases'].filter(canvas => {
               return canvas['@id'] === resourceCanvas
             })
-            let imageURL = manifestImage[0]['images'][0]['resource']['@id']
-            imageURL = `${imageURL.split('full')[0]}${imageCoords}/full/0/default.jpg`
+            const  imageURL = `${manifestImage[0]['images'][0]['resource']['service']['@id']}/${imageCoords}/full/0/default.jpg`
+
+            const manifestLabel = typeof manifest['label'] === 'string' ? manifest['label'] : manifest['label']['@value']
 
             return {imageURL : imageURL,
-                    label: manifest['label'],
+                    label: manifestLabel,
                     manifestId: manifest['manifestId']
                     }
           })
           wordMatchArray = [...wordMatchArray, ...wordResourceImages]
-          setWordMatches(wordMatchArray)
-        } 
+        }
+        setWordMatches(wordMatchArray)
+
       }
       getData(manifest['searchURL'],wordToSearch)
       countdown -= 1
@@ -44,14 +46,14 @@ const WordSearch = ({wordToSearch, manifestData, language, wordIndex}) => {
     
   },[wordToSearch, manifestData])
 
-  if(!searchComplete ){
+  if(!searchComplete || wordMatches === undefined){
     return null;
   }
 
   return (
     <>
 
-        {wordMatches !== undefined ? 
+        {wordMatches.length > 0 ? 
           <>
             <RansomWord
               imageMetadata={wordMatches}
