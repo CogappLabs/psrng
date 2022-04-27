@@ -17,7 +17,7 @@ const RansomLetters = ({letterToSearch, manifestData, language, wordIndex}) => {
         const letterResources =  data['resources']
         if(letterResources.length > 0) {
           const letterResourceImages = letterResources.map(resource => {
-            const resourceCanvas = resource['on'].split('#')[0]
+            const resourceCanvas = language === 'ar' ? resource['on'].split('#')[0].replace('en','العربية') : resource['on'].split('#')[0]
             const imageCoords = resource['on'].split('=')[1].split(',')
             const generousImageCoords = imageCoords.map(coord => parseInt(coord) + 10).join(',')
             const manifestImage = manifest['canvases'].filter(canvas => {
