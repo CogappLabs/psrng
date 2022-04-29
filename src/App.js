@@ -9,30 +9,32 @@ function App() {
   const [language, setLanguage] = useState('en')
   const { t, i18n } = useTranslation()
 
-  const availableLanguages = Object.keys(multilingualManifests);
+  const  availableLanguages = Object.entries(multilingualManifests);
 
   const handleLanguageSelection = (event) => {
-    setLanguage(event.target.value)
-    i18n.changeLanguage(event.target.value)
+    setLanguage(event.target.id)
+    i18n.changeLanguage(event.target.id)
   }
 
   return (
     <div className='app-body'>
       <div className='prsng-body'>
-        <h1>{t("title")}</h1>
         <div className='language-select'>
-          <h3>{t("language-select")}</h3>
-          <select onChange={handleLanguageSelection} value={language} className='language-option'>
-            {availableLanguages.map(lang => {
-              return <option
-              key={lang}
-              value={lang}
+          <h4>{t("language-select")}</h4>
+          <div className='language-options'>
+            {availableLanguages.map((lang) => {
+              return <div
+                className={`${lang[0] === language ? 'selected-lang' : 'not-selected'} language-option`}
+                key={lang[0]}
+                id={lang[0]}
+                onClick={handleLanguageSelection} 
               >
-                {lang}
-              </option>
+                {lang[1]['label']}
+              </div>
             })}
-          </select>
+          </div>
         </div>
+        <h1>{t("title")}</h1>
       </div>
         <ManifestLoader language={language}/>
     </div>

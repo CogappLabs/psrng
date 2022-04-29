@@ -19,7 +19,7 @@ const ManifestLoader = ({language}) => {
   const [ matchedManifests, setMatchedManifests ] = useState()
 
   useEffect(() => {
-    setSelectedLanguageManifest(multilingualManifests[`${language}`])
+    setSelectedLanguageManifest(multilingualManifests[`${language}`]['manifests'])
     i18n.changeLanguage(language)
   }, [language, i18n])
 

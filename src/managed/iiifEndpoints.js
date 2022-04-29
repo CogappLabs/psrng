@@ -1,5 +1,7 @@
 export const multilingualManifests = {
-  'ar' : [
+  'ar' : {
+    'label': 'العربية',
+    'manifests': [
     'https://www.agda.ae/العربية/catalogue/tna/fo/371/168903/iiif/manifest',
     'https://www.agda.ae/العربية/catalogue/tna/fo/93/137/iiif/manifest',
     'https://www.agda.ae/العربية/catalogue/tna/fo/371/126991/iiif/manifest',
@@ -8,8 +10,10 @@ export const multilingualManifests = {
     'https://www.agda.ae/العربية/catalogue/tna/fco/8/68/iiif/manifest',
     'https://www.agda.ae/العربية/catalogue/tna/fco/8/1268/iiif/manifest',
     'https://www.agda.ae/العربية/catalogue/tna/fo/371/120583/iiif/manifest'
-  ],
-  'en' : [
+  ]},
+  'en' : {
+    'label': 'English',
+    'manifests': [
     'https://www.agda.ae/en/catalogue/tna/fo/93/137/iiif/manifest',
     'https://www.agda.ae/en/catalogue/tna/fco/8/3812/iiif/manifest', 
     'https://www.agda.ae/en/catalogue/tna/fco/8/538/iiif/manifest', 
@@ -21,8 +25,10 @@ export const multilingualManifests = {
     'https://iiif.wellcomecollection.org/presentation/v2/b30752176/',
     'https://iiif.wellcomecollection.org/presentation/v2/b22015140/',
     'https://iiif.wellcomecollection.org/presentation/v2/b22431160/'
-  ],
-  'fr' : [
+  ]},
+  'fr' : {
+    'label': 'Francais',
+    'manifests': [
     'https://collections.maison-salins.fr/iiif/2/108217/manifest',
     'https://collections.maison-salins.fr/iiif/2/1753/manifest',
     'https://collections.maison-salins.fr/iiif/2/287/manifest',
@@ -32,5 +38,5 @@ export const multilingualManifests = {
     'https://collections.maison-salins.fr/iiif/2/50326/manifest',
     'https://collections.maison-salins.fr/iiif/2/50323/manifest',
     'https://collections.maison-salins.fr/iiif/2/1648/manifest'
-  ]
+  ]}
 } 

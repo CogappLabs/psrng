@@ -45,7 +45,7 @@ const WordSearch = ({wordToSearch, manifestData, language, wordIndex}) => {
       }
     });
     
-  },[wordToSearch, manifestData])
+  },[wordToSearch, manifestData, language])
 
   if(!searchComplete || wordMatches === undefined){
     return null;

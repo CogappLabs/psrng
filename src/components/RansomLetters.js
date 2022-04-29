@@ -43,7 +43,7 @@ const RansomLetters = ({letterToSearch, manifestData, language, wordIndex}) => {
       }
     });
     
-  },[letterToSearch, manifestData])
+  },[letterToSearch, manifestData, language])
 
 
   if(!searchComplete || letterMatches === undefined){
