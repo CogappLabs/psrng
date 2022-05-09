@@ -119,7 +119,7 @@ const ManifestLoader = ({language}) => {
         </form>
       </div>
       <div className='ransom-output'>
-        <div className='ransom-words'>
+        <div className={language === 'ar' ? 'ransom-words arabic-rtl' : 'ransom-words'}>
           {userInputWordsArray.map((userInputWord,index) => {
             return <div 
                     className='ransom-word'

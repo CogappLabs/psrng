@@ -95,6 +95,10 @@ body {
     align-items: flex-start;
 }
 
+.arabic-rtl {
+    flex-direction: row-reverse;
+}
+
 .ransom-word:hover {
     border: 1px solid rgb(193, 199, 253);
     border-radius: 15px;

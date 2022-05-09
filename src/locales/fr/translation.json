@@ -4,7 +4,6 @@
   "demands-input" : "FR: Enter your demands...",
   "refresh": "FR: Refresh",
   "remove": "FR: Remove",
-  "info" : "FR: See more information",
   "matched-manifests": "FR: Matched manifests",
   "input-hint": "FR: Adding a space after a word will trigger a search"
 }
