@@ -111,6 +111,11 @@ const ManifestLoader = ({language}) => {
               onChange={handleChange}
             />
           </div>
+          <div className='hint-container'>
+            {ransomNote && 
+              <p className='hint'>{t("input-hint")}</p>
+            }
+          </div>
         </form>
       </div>
       <div className='ransom-output'>

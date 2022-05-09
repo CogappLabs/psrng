@@ -25,6 +25,16 @@ body {
     margin: auto;
 }
 
+.hint-container {
+    height: 2rem;
+}
+
+.hint {
+    font-size: smaller;
+    color: rgb(41, 55, 178);
+    position: absolute;
+}
+
 .prsng-body, .ransom-output, .language-select {
     min-width: 75%;
 }
@@ -51,7 +61,7 @@ body {
 
 .selected-lang {
     background-color: rgba(193, 199, 253, 0.25);
-    border: 2px solid rgb(141, 152, 251, 0.5);
+    border: 2px solid rgba(141, 152, 251, 0.5);
 }
 
 .ransom-output {

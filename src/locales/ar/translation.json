@@ -5,5 +5,6 @@
   "refresh": "AR: Refresh",
   "remove": "AR: Remove",
   "info" : "AR: See more information",
-  "matched-manifests": "AR: Matched manifests"
+  "matched-manifests": "AR: Matched manifests",
+  "input-hint": "AR: Adding a space after a word will trigger a search"
 }
