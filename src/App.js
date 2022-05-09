@@ -8,6 +8,7 @@ function App() {
 
   const [language, setLanguage] = useState('en')
   const { t, i18n } = useTranslation()
+  document.body.dir = i18n.dir()
 
   const  availableLanguages = Object.entries(multilingualManifests);
 
