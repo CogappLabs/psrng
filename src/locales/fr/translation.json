@@ -1,9 +1,9 @@
 {
-  "title":"FR: Primary Source Ransom Note Generator",
-  "language-select": "FR: Select a language",
-  "demands-input" : "FR: Enter your demands...",
-  "refresh": "FR: Refresh",
-  "remove": "FR: Remove",
-  "matched-manifests": "FR: Matched manifests",
-  "input-hint": "FR: Adding a space after a word will trigger a search"
+  "title":"Générateur de note de rançon de source principale",
+  "language-select": "Sélectionnez une langue",
+  "demands-input" : "Entrez votre demandes...",
+  "refresh": "Rafraîchir",
+  "remove": "Éliminer",
+  "matched-manifests": "Manifestes correspondants",
+  "input-hint": "Astuce : ajouter un espace après un mot déclenchera une recherche"
 }
