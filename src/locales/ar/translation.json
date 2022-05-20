@@ -1,9 +1,9 @@
 {
-  "title": "AR: Primary Source Ransom Note Generator",
-  "language-select": "AR: Select a language",
-  "demands-input" : "AR: Enter your demands...",
-  "refresh": "AR: Refresh",
-  "remove": "AR: Remove",
-  "matched-manifests": "AR: Matched manifests",
-  "input-hint": "AR: Adding a space after a word will trigger a search"
+  "title": "منشئ مذكرة فدية المصدر الأساسي",
+  "language-select": "اختر لغة",
+  "demands-input" : "أدخل مطالبك ...",
+  "refresh": "تحديث",
+  "remove": "إزالة",
+  "matched-manifests": "البيانات المتطابقة",
+  "input-hint": "ستؤدي إضافة مسافة بعد الكلمة إلى بدء البحث"
 }
